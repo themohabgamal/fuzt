@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:qrcode/theme/my_colors.dart';
 
 class UsedQRCodesReceiptScreen extends StatefulWidget {
   const UsedQRCodesReceiptScreen({super.key});
@@ -181,7 +182,7 @@ class _UsedQRCodesReceiptScreenState extends State<UsedQRCodesReceiptScreen> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
+                      backgroundColor: MyColors.primaryColor,
                     ),
                     onPressed: () => _selectFromDate(context),
                     child: Text(
@@ -193,7 +194,7 @@ class _UsedQRCodesReceiptScreenState extends State<UsedQRCodesReceiptScreen> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
+                      backgroundColor: MyColors.primaryColor,
                     ),
                     onPressed: () => _selectToDate(context),
                     child: Text(

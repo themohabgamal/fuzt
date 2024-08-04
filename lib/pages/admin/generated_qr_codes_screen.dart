@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qrcode/theme/my_colors.dart';
@@ -30,7 +31,7 @@ class _GeneratedQRCodesScreenState extends State<GeneratedQRCodesScreen> {
     });
 
     await showModalBottomSheet(
-      backgroundColor: const Color.fromARGB(255, 36, 34, 49),
+      backgroundColor: MyColors.primaryColor,
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
@@ -87,11 +88,17 @@ class _GeneratedQRCodesScreenState extends State<GeneratedQRCodesScreen> {
                       children: [
                         Text(
                           'This is your QR code',
-                          style: Theme.of(context).textTheme.titleMedium,
+                          style:
+                              Theme.of(context).textTheme.titleMedium!.copyWith(
+                                    color: Colors.white,
+                                  ),
                         ),
                         Text(
                           'Save it or share it now',
-                          style: Theme.of(context).textTheme.bodySmall,
+                          style:
+                              Theme.of(context).textTheme.bodySmall!.copyWith(
+                                    color: Colors.white,
+                                  ),
                         ),
                       ],
                     ),
@@ -156,7 +163,7 @@ class _GeneratedQRCodesScreenState extends State<GeneratedQRCodesScreen> {
               text: 'Here is your QR code with logo!');
 
           bool shared = await _showConfirmationDialog(
-              context, 'QR code shared successfully!');
+              context, 'QR code shared successfully?');
           if (shared) {
             await _moveQrCodeToShared(qrCodeId);
           }
@@ -302,11 +309,14 @@ class _GeneratedQRCodesScreenState extends State<GeneratedQRCodesScreen> {
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-              backgroundColor: const ui.Color.fromARGB(255, 37, 34, 61),
-              title: const Text('Confirmation!'),
+              backgroundColor: MyColors.secondaryColor,
+              title: const Text(
+                'Confirmation!',
+                style: TextStyle(color: Colors.black),
+              ),
               content: Text(
                 message,
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16, color: Colors.black),
               ),
               actions: [
                 TextButton(

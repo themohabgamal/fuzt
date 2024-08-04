@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:qrcode/theme/my_colors.dart';
 
 class UsedQRCodesScreen extends StatefulWidget {
   const UsedQRCodesScreen({super.key});
@@ -132,19 +133,6 @@ class _UsedQRCodesScreenState extends State<UsedQRCodesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Clear to get all used QR codes',
-          style: TextStyle(fontSize: 18),
-        ),
-        actions: [
-          if (fromDate != null || toDate != null)
-            IconButton(
-              icon: const Icon(Icons.clear),
-              onPressed: _resetFilters,
-            ),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -155,7 +143,7 @@ class _UsedQRCodesScreenState extends State<UsedQRCodesScreen> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
+                      backgroundColor: MyColors.primaryColor,
                     ),
                     onPressed: () => _selectFromDate(context),
                     child: Text(
@@ -167,7 +155,7 @@ class _UsedQRCodesScreenState extends State<UsedQRCodesScreen> {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
+                      backgroundColor: MyColors.primaryColor,
                     ),
                     onPressed: () => _selectToDate(context),
                     child: Text(
@@ -177,6 +165,11 @@ class _UsedQRCodesScreenState extends State<UsedQRCodesScreen> {
                       style: const TextStyle(color: Colors.white),
                     ),
                   ),
+                  if (fromDate != null || toDate != null)
+                    IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: _resetFilters,
+                    ),
                 ],
               ),
             ),

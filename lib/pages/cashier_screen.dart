@@ -165,7 +165,10 @@ class _CashierScreenState extends State<CashierScreen>
                 _phoneController.clear();
               }
             },
-            child: const Text('Confirm'),
+            child: const Text(
+              'Confirm',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           TextButton(
             onPressed: () {
@@ -176,7 +179,10 @@ class _CashierScreenState extends State<CashierScreen>
               _resumeScanning();
               _phoneController.clear();
             },
-            child: const Text('Cancel'),
+            child: const Text(
+              'Cancel',
+              style: TextStyle(color: Colors.white),
+            ),
           ),
         ],
       ),

@@ -56,10 +56,15 @@ class _SharedQRCodesScreenState extends State<SharedQRCodesScreen> {
                 context: context,
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    backgroundColor: const Color.fromARGB(255, 31, 28, 54),
-                    title: const Text('Confirm'),
+                    backgroundColor: MyColors.secondaryColor,
+                    title: const Text(
+                      'Confirm',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     content: const Text(
-                        'Are you sure you want to clear all shared QR codes?'),
+                      'Are you sure you want to clear all shared QR codes?',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     actions: [
                       TextButton(
                         child: const Text('Cancel'),
